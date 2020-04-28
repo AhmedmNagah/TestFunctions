@@ -1,0 +1,30 @@
+  import java.text.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+  private static int CompareTwoDates(String Date1, String Date2) throws ParseException  {
+        
+       try{
+                // creating date pattern
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+                Date DeathDate = sdf.parse(Date1);
+                Date RequestDate = sdf.parse(Date2);
+
+                if (DeathDate.compareTo(RequestDate) > 0) 
+                    {
+                         System.out.println("DeatDateCanNotBeAfterRequestDate");
+                         return -1;
+                    } 
+                
+         } catch (ParseException p)
+                {
+                    System.out.println("Error, "+p.getMessage());
+                }
+           catch (Exception e)
+                     {
+                         System.out.println("Error, "+e.getMessage());
+                     }
+        return 1;
+    }
